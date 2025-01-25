@@ -407,13 +407,10 @@ class Cli {
           else if (answers.action === 'Tow vehicle') {
             for (let i = 0; i < this.vehicles.length; i++) {
               if (this.vehicles[i].vin === this.selectedVehicleVin) {
-                const selectedVehicle = this.vehicles[i];
-                if (selectedVehicle instanceof Truck) {
-                  this.findVehicleToTow(selectedVehicle);
-                  return;
+                if (this.vehicles[i] instanceof Truck) 
+                  { this.findVehicleToTow(this.vehicles[i] as Truck);
+                   return
                 } else {console.log(`This vehicle cannot be towed.`);
-                  this.performActions();
-                  return;
             }
           }
         }
@@ -421,9 +418,10 @@ class Cli {
         for (let i = 0; i < this.vehicles.length; i++) {
           if (this.vehicles[i].vin === this.selectedVehicleVin) {
             if(this.vehicles[i] instanceof Motorbike){
+              (this.vehicles[i] as Motorbike).wheelie();
               console.log(`${this.vehicles[i].make} is doing a wheelie!`);
             }else {console.log(`This vehicle cannot perform a wheelie.`);
-            } break;
+            } 
           }
         }
       } else if (answers.action === 'Select or create another vehicle') {
