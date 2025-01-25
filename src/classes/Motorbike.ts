@@ -1,10 +1,9 @@
 // Importing Vehicle and Wheel classes
-import Vehicle from './Vehicle.js';
-import Wheel from './Wheel.js';
+import Vehicle from "./Vehicle.js";
+import Wheel from "./Wheel.js";
 
 // TODO: The Motorbike class should extend the Vehicle class
 class Motorbike extends Vehicle {
-  
   // TODO: Declare properties of the Motorbike class
   // TODO: The properties should include vin, color, make, model, year, weight, top speed, and wheels
   // TODO: The types should be as follows: vin (string), color (string), make (string), model (string), year (number), weight (number), topSpeed (number), wheels (Wheel[])
@@ -16,51 +15,51 @@ class Motorbike extends Vehicle {
   year: number;
   weight: number;
   topSpeed: number;
-  wheels: (Wheel[]);
+  wheels: Wheel[];
+  
 
   // TODO: Create a constructor that accepts the properties of the Motorbike class
-    // TODO: The constructor should call the constructor of the parent class, Vehicle
-   
-    constructor(
-      vin: string,
-      color: string,
-      make: string,
-      model: string,
-      year: number,
-      weight: number,
-      topSpeed: number,
-      wheels: Wheel[]= [new Wheel(), new Wheel()]
-    ) {
-      super();
   
-  // TODO: The constructor should initialize the properties of the Motorbike class
-   
-      this.vin = vin;
-      this.color = color;
-      this.make = make;
-      this.model = model;
-      this.year = year;
-      this.weight = weight;
-      this.topSpeed = topSpeed;
+  // TODO: The constructor should call the constructor of the parent class, Vehicle
 
+  constructor(
+    vin: string,
+    color: string,
+    make: string,
+    model: string,
+    year: number,
+    weight: number,
+    topSpeed: number,
+    wheels: Wheel[]
+  ){
+    super();
+
+    // TODO: The constructor should initialize the properties of the Motorbike class
+
+    this.vin = vin;
+    this.color = color;
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.weight = weight;
+    this.topSpeed = topSpeed;
 
     // TODO: The constructor should check if the wheels array has 2 elements and create 2 new default Wheel objects if it does not
-      
-      if (wheels.length !== 2) {
-        this.wheels = [new Wheel(15, 'Harley Davidson'), new Wheel(16,'Harley Davidson')];
-      } else {
-        this.wheels = wheels;
-      }
-    }
 
+    if (wheels.length !== 2) {
+      this.wheels = [new Wheel(), new Wheel()];
+    } else {
+      this.wheels = wheels;
+    }
+  }
 
   // TODO: Implement the wheelie method
-    // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
+  // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
 
-    wheelie(): void {
-      if(this.started){
+  wheelie(): void {
+    if (this.started) {
       console.log(`Motorbike ${this.make} ${this.model} is doing a wheelie!`);
-    }else{
+    } else {
       console.log(`Start the vehicle first.`);
     }
   }
@@ -70,18 +69,17 @@ class Motorbike extends Vehicle {
   // TODO: The method should log the details of the Motorbike
   // TODO: The details should include the VIN, make, model, year, weight, top speed, color, and wheels
 
-
   override printDetails(): void {
-      super.printDetails();
+    super.printDetails();
     console.log(
-      `VIN: ${this.vin}
-      MAKE: ${this.make}
-      MODEL: ${this.model}
-      YEAR: ${this.year}
-      WEIGHT: ${this.weight} lbs
-      TOP SPEED: ${this.topSpeed} mph
-      COLOR: ${this.color}      
-      WHEELS: ${this.wheels.length}`
+   `VIN: ${this.vin}
+    MAKE: ${this.make}
+    MODEL: ${this.model}
+    YEAR: ${this.year}
+    WEIGHT: ${this.weight} lbs
+    TOP SPEED: ${this.topSpeed} mph
+    COLOR: ${this.color}      
+    WHEELS: ${this.wheels.length}`
     );
 
     // WHEEL DETAILS
@@ -92,8 +90,7 @@ class Motorbike extends Vehicle {
     console.log(
       `Wheel 2: ${this.wheels[1].getDiameter} inch with a ${this.wheels[1].getTireBrand} tire`
     );
-
-}
+  }
 }
 
 // Export the Motorbike class as the default export

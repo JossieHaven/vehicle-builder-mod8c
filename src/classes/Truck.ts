@@ -20,7 +20,7 @@ class Truck extends Vehicle implements AbleToTow {
   year: number;
   weight: number;
   topSpeed: number;
-  wheels: (Wheel[]);
+  wheels: Wheel[];
   towingCapacity: number;
 
   // TODO: Create a constructor that accepts the properties of the Truck class
@@ -37,7 +37,7 @@ class Truck extends Vehicle implements AbleToTow {
     weight: number,
     topSpeed: number,
     towingCapacity: number,
-    wheels: Wheel[] = [new Wheel(), new Wheel(), new Wheel(), new Wheel()]
+    wheels: Wheel[]
     
   ) {
     super(); //Call constructor
@@ -56,7 +56,7 @@ class Truck extends Vehicle implements AbleToTow {
     // Check if wheels array has 4 elems + create 4 new default wheel objects if not.
 
     if (wheels.length !== 4) {
-      this.wheels = [new Wheel(25,'GoodYear'), new Wheel(25,'GoodYear'), new Wheel(25,'GoodYear'), new Wheel(25,'GoodYear')];
+      this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
     } else {
       this.wheels = wheels;
     };
@@ -85,8 +85,8 @@ class Truck extends Vehicle implements AbleToTow {
     // TODO: The method should log the details of the Truck
     // TODO: The details should include the VIN, make, model, year, weight, top speed, color, towing capacity, and wheels
 
-    override printDetails(): void {
-      super.printDetails(); //Call printDetails method
+  override printDetails(): void {
+    super.printDetails(); //Call printDetails method
       //Pirnt details
       console.log(
         `VIN: ${this.vin},
