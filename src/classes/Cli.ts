@@ -257,25 +257,17 @@ class Cli {
         },
       ])
       .then((answers) => {
-        const frontWheel = new Wheel(
-          answers.frontWheelDiameter,
-          answers.frontWheelBrand
-        );
-        const rearWheel = new Wheel(
-          answers.rearWheelDiameter,
-          answers.rearWheelBrand
-        );
-        const wheelsAnswersArray = [frontWheel, rearWheel];
+
         // TODO: Use the answers object to pass the required properties to the Motorbike constructor
         const motorbike = new Motorbike(
           Cli.generateVin(),
           answers.color,
           answers.make,
           answers.model,
-          answers.year,
-          answers.weight,
-          answers.topSpeed,
-          wheelsAnswersArray
+          parseInt(answers.year),
+          parseInt(answers.weight),
+          parseInt(answers.topSpeed),
+          []
         );
 
         // TODO: push the motorbike to the vehicles array
@@ -313,15 +305,17 @@ class Cli {
         // TODO: check if the selected vehicle is the truck
         // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
         // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
-        if (answers.vehicleToTow.vin === truck.vin) {
-          console.log("Truck cannot tow itself.");
+        const vehicleToTow = answers.vehicleToTow;
+        if (vehicleToTow) {
+          if (vehicleToTow instanceof Truck) {
+            console.log("Truck cannot tow itself.");
+          } else {
+            truck.tow(vehicleToTow); 
+            console.log(`Vehicle succesfully towed!`);
+          }
           this.performActions();
-        } else {
-          console.log(
-            `${answers.vehicleToTow.make} ${answers.vehicleToTow.model} has been successfully towed!`
-          );
-          this.performActions();
-        }
+
+        } 
       });
   }
 
