@@ -197,7 +197,7 @@ class Cli {
 
         // TODO: perform actions on the truck
 
-        this.perfomActions();
+        this.performActions();
       });
   }
 
@@ -283,7 +283,7 @@ class Cli {
 
         // TODO: perform actions on the motorbike
 
-        this.perfomActions();
+        this.performActions();
       });
   }
 
@@ -310,7 +310,7 @@ class Cli {
         // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
         if(answers.vehicleToTow.vin === truck.vin) {
           console.log("Truck cannot tow itself.");
-          this.perfomActions();
+          this.performActions();
         } else {
           console.log(`${answers.vehicleToTow.make} ${answers.vehicleToTow.model} has been successfully towed!`)
           this.performActions();
