@@ -314,9 +314,8 @@ class Cli {
             console.log(`Vehicle succesfully towed!`);
           }
           this.performActions();
-
         } 
-      });
+          });
   }
 
   // method to perform actions on a vehicle
@@ -334,11 +333,11 @@ class Cli {
             "Accelerate 5 MPH",
             "Decelerate 5 MPH",
             "Stop vehicle",
-            "Tow",
+            "Tow vehicle",
             "Turn right",
             "Turn left",
             "Reverse",
-            "Wheelie",
+            "Perform a wheelie",
             "Select or create another vehicle",
             "Exit",
           ],
@@ -416,7 +415,9 @@ class Cli {
               }
             }
           }
-        } else if (answers.action === "Perform a wheelie") {
+        } 
+        
+          else if (answers.action === "Perform a wheelie") {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               if (this.vehicles[i] instanceof Motorbike) {
