@@ -10,12 +10,12 @@ class Cli {
   // TODO: update the vehicles property to accept Truck and Motorbike objects as well
   // TODO: You will need to use the Union operator to define additional types for the array
   // TODO: See the AbleToTow interface for an example of how to use the Union operator
-  vehicles: (Car / Motorbike / Truck) [];
+  vehicles: (Car | Motorbike | Truck)[];
   selectedVehicleVin: string | undefined;
   exit: boolean = false;
 
   // TODO: Update the constructor to accept Truck and Motorbike objects as well
-  constructor(vehicles: (Car / Truck / Motorbike)[]) {
+  constructor(vehicles: (Car | Truck | Motorbike)[]) {
     this.vehicles = vehicles;
   }
 
@@ -69,7 +69,7 @@ class Cli {
           // create a car
           this.createCar();
         } else if (answers.vehicleType === 'Motorbike') {
-          this.creatMotorbike();
+          this.createMotorbike();
         } else if (answers.vehicleType === 'Truck') {
           this.createMotorbike
         }
@@ -174,7 +174,9 @@ class Cli {
         },
       ])
       .then((answers) => {
+      
         // TODO: Use the answers object to pass the required properties to the Truck constructor
+        const truck = new Truck(
         Cli.generateVin(),
         answers.color,
         answers.make,
@@ -183,6 +185,7 @@ class Cli {
         parseInt(answers.weight),
         parseInt(answers.topSpeed),
         parseInt(answers.towingCapacity)
+        );
 
         // TODO: push the truck to the vehicles array
 
