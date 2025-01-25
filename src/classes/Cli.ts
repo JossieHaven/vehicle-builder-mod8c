@@ -234,27 +234,7 @@ class Cli {
           type: "input",
           name: "topSpeed",
           message: "Enter Top Speed",
-        },
-        {
-          type: "input",
-          name: "frontWheelDiameter",
-          message: "Enter Front Wheel Diameter",
-        },
-        {
-          type: "input",
-          name: "frontWheelBrand",
-          message: "Enter Front Wheel Brand",
-        },
-        {
-          type: "input",
-          name: "rearWheelDiameter",
-          message: "Enter Rear Wheel Diameter",
-        },
-        {
-          type: "input",
-          name: "rearWheelBrand",
-          message: "Enter Rear Wheel Brand",
-        },
+        },        
       ])
       .then((answers) => {
 
@@ -308,7 +288,7 @@ class Cli {
         const vehicleToTow = answers.vehicleToTow;
         if (vehicleToTow) {
           if (vehicleToTow instanceof Truck) {
-            console.log("Truck cannot tow itself.");
+            console.log("This vehicle cannot be towed.");
           } else {
             truck.tow(vehicleToTow); 
             console.log(`Vehicle succesfully towed!`);
@@ -411,7 +391,7 @@ class Cli {
                 this.findVehicleToTow(this.vehicles[i] as Truck);
                 return;
               } else {
-                console.log(`This vehicle cannot be towed.`);
+                console.log(`This vehicle is unable to tow.`);
               }
             }
           }

@@ -52,7 +52,7 @@ SO THAT I am able to comprehend and work with existing code bases.
 - THEN I can perform additional actions until I choose to exit
 
 ## Video Tutorial
-[Video Tutorial](https://drive.google.com/file/d/18B6VjEP_GLMJ9nZamRcAL256g0-c-YMK/view?usp=sharing)
+[Video Tutorial](https://drive.google.com/file/d/1p0KzZ8RBGAogS7LgcLXeRwUm55VMCLlS/view?usp=sharing)
 
 ## GitHub Repository
 [Github-Repo](https://github.com/JossieHaven/vehicle-builder-mod8c)
